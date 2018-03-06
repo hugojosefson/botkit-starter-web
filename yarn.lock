@@ -333,6 +333,10 @@
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/@sheerun/eslint-config-standard/-/eslint-config-standard-10.2.1.tgz#7d73397369c396b3625cab6ec313f6d4208300ef"
 
+"@std/esm@^0.25.0":
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.25.0.tgz#8587baa7ecba8cea7930b5637457edfdee323e44"
+
 "@xmpp/jid@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@xmpp/jid/-/jid-0.0.2.tgz#0d528ca9d58dafc833665564ffe62f332a3167f2"
