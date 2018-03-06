@@ -21,6 +21,7 @@ const Botkit = require('botkit')
 const debug = require('debug')('botkit:main')
 
 const bot_options = {
+  recastai_token: process.env.recastai_token,
   studio_token: process.env.studio_token,
   studio_command_uri: process.env.studio_command_uri,
   studio_stats_uri: process.env.studio_command_uri,
