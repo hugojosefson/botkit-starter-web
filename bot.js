@@ -14,13 +14,13 @@
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-var env = require('node-env-file')
+const env = require('node-env-file')
 env(__dirname + '/.env')
 
-var Botkit = require('botkit')
-var debug = require('debug')('botkit:main')
+const Botkit = require('botkit')
+const debug = require('debug')('botkit:main')
 
-var bot_options = {
+const bot_options = {
   studio_token: process.env.studio_token,
   studio_command_uri: process.env.studio_command_uri,
   studio_stats_uri: process.env.studio_command_uri,
@@ -31,17 +31,17 @@ var bot_options = {
 // Mongo is automatically configured when deploying to Heroku
 if (process.env.MONGO_URI) {
   // create a custom db access method
-  var db = require(__dirname + '/components/database.js')({})
+  const db = require(__dirname + '/components/database.js')({})
   bot_options.storage = db
 } else {
   bot_options.json_file_store = __dirname + '/.data/db/' // store user data in a simple JSON format
 }
 
 // Create the Botkit controller, which controls all instances of the bot.
-var controller = Botkit.socketbot(bot_options)
+const controller = Botkit.socketbot(bot_options)
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
-var webserver = require(__dirname + '/components/express_webserver.js')(
+const webserver = require(__dirname + '/components/express_webserver.js')(
   controller
 )
 
@@ -58,7 +58,7 @@ controller.openSocketServer(controller.httpserver)
 // Start the bot brain in motion!!
 controller.startTicking()
 
-var normalizedPath = require('path').join(__dirname, 'skills')
+const normalizedPath = require('path').join(__dirname, 'skills')
 require('fs')
   .readdirSync(normalizedPath)
   .forEach(function (file) {
