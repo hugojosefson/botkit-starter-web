@@ -1488,6 +1488,12 @@ encoding@^0.1.11:
   dependencies:
     iconv-lite "~0.4.13"
 
+engine-check@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/engine-check/-/engine-check-1.0.1.tgz#10392a9af59fc0d6eac67382c0b639c7f3e7fcac"
+  dependencies:
+    semver "^5.0"
+
 envify@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/envify/-/envify-4.1.0.tgz#f39ad3db9d6801b4e6b478b61028d3f0b6819f7e"
@@ -4702,7 +4708,7 @@ selectn@^0.9.6:
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/selectn/-/selectn-0.9.6.tgz#bd873a556d18f96d8515fc91503ec6ff398ff9a2"
 
-"semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
