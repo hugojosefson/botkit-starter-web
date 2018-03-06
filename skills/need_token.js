@@ -84,11 +84,6 @@ module.exports = function(controller) {
       bot.startConversation(message, function(err, convo) {
         convo.say('The next step is to add your token to my `.env` file. This file lives in the root folder of my project, and contains settings used by my code.');
 
-        if (process.env.PROJECT_DOMAIN) {
-          var edit_url = 'https://glitch.com/edit/#!/' + process.env.PROJECT_DOMAIN + '?path=.env:1:0';
-          convo.say('It looks like I am being hosted on Glitch - that means [you can edit this file right here](' + edit_url + ')!');
-        }
-
         convo.say('Add a line that says: `studio_token=MY_TOKEN_HERE`');
 
         convo.say({

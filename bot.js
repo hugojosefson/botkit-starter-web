@@ -47,9 +47,6 @@ var webserver = require(__dirname + '/components/express_webserver.js')(controll
 
 
 
-// Load in some helpers that make running Botkit on Glitch.com better
-require(__dirname + '/components/plugin_glitch.js')(controller);
-
 // Load in a plugin that defines the bot's identity
 require(__dirname + '/components/plugin_identity.js')(controller);
 
