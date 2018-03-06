@@ -32,7 +32,7 @@ const bot_options = {
 // Mongo is automatically configured when deploying to Heroku
 if (process.env.MONGO_URI) {
   // create a custom db access method
-  const db = require(__dirname + '/components/database.js')({})
+  const db = require('./components/database')({})
   bot_options.storage = db
 } else {
   bot_options.json_file_store = __dirname + '/.data/db/' // store user data in a simple JSON format
@@ -42,12 +42,10 @@ if (process.env.MONGO_URI) {
 const controller = Botkit.socketbot(bot_options)
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
-const webserver = require(__dirname + '/components/express_webserver.js')(
-  controller
-)
+const webserver = require('./components/express_webserver')(controller)
 
 // Load in a plugin that defines the bot's identity
-require(__dirname + '/components/plugin_identity.js')(controller)
+require('./components/plugin_identity')(controller)
 
 // enable advanced botkit studio metrics
 // and capture the metrics API to use with the identity plugin!
