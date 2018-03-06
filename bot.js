@@ -14,9 +14,6 @@
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-const env = require('node-env-file')
-env(__dirname + '/.env')
-
 const Botkit = require('botkit')
 const debug = require('debug')('botkit:main')
 
@@ -65,7 +62,7 @@ require('fs')
   })
 
 console.log(
-  'I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000)
+  'I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 8080)
 )
 
 // This captures and evaluates any message sent to the bot as a DM

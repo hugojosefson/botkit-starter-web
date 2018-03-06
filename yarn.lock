@@ -3846,10 +3846,6 @@ nock@^8.0.0:
     propagate "0.4.0"
     qs "^6.0.2"
 
-node-env-file@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/node-env-file/-/node-env-file-0.1.8.tgz#fccb7b050f735b5a33da9eb937cf6f1ab457fb69"
-
 node-ews@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/node-ews/-/node-ews-3.2.4.tgz#c7e9d21e53ee0440ea3b5dde97077a52058f0c97"

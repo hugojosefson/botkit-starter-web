@@ -34,10 +34,10 @@ module.exports = function (controller) {
 
   var server = http.createServer(webserver)
 
-  server.listen(process.env.PORT || 3000, null, function () {
+  server.listen(process.env.PORT || 8080, null, function () {
     debug(
       'Express webserver configured and listening at http://localhost:' +
-        process.env.PORT || 3000
+        process.env.PORT || 8080
     )
   })
 
