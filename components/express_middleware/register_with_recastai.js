@@ -3,7 +3,7 @@ const debug = require('debug')('botkit:register_with_recastai')
 module.exports = (webserver, controller) => {
   debug('Setting up middleware')
   const RecastaiMiddleware = require('botkit-middleware-recastai')({
-    request_token: controller.config.recastai_token,
+    request_token: controller.config.recastaiApiToken,
     confidence: 0.4
   })
 
