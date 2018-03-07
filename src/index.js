@@ -1,6 +1,6 @@
 import Botkit from 'botkit'
-import skills from './skills'
-import expressWebserver from './components/expressWebserver'
+import skills from './skills/index'
+import Webserver from './webserver'
 
 const botOptions = {
   recastaiApiToken: process.env.RECASTAI_API_TOKEN,
@@ -10,8 +10,7 @@ const botOptions = {
 // Create the Botkit controller, which controls all instances of the bot.
 const controller = Botkit.socketbot(botOptions)
 
-// Set up an Express-powered webserver to expose oauth and webhook endpoints
-const webserver = expressWebserver(controller)
+const webserver = Webserver(controller)
 
 // Open the web socket server
 controller.openSocketServer(controller.httpserver)

@@ -1,2 +1,2 @@
 require('engine-check')()
-module.exports = require('@std/esm')(module)('./bot.js').default
+module.exports = require('@std/esm')(module)('./src/index.js').default
