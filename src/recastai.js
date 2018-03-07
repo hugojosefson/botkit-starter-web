@@ -1,6 +1,6 @@
 import BotkitMiddlewareRecastai from 'botkit-middleware-recastai'
 import debug0 from 'debug'
-const debug = debug0('botkit:register_with_recastai')
+const debug = debug0('botkit:register-with-recastai')
 
 export default controller => {
   debug('Setting up middleware')
