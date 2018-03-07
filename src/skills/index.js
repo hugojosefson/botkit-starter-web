@@ -1,4 +1,4 @@
-import connectionEvents from './connectionEvents'
-import recastaiHears from './recastaiHears'
+import connectionEvents from './connection-events'
+import recastaiHears from './recastai-hears'
 
 export default [connectionEvents, recastaiHears]
