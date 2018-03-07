@@ -1,8 +1,10 @@
-const debug = require('debug')('botkit:register_with_recastai')
+import BotkitMiddlewareRecastai from 'botkit-middleware-recastai'
+import debug0 from 'debug'
+const debug = debug0('botkit:register_with_recastai')
 
-module.exports = (webserver, controller) => {
+export default controller => {
   debug('Setting up middleware')
-  const RecastaiMiddleware = require('botkit-middleware-recastai')({
+  const RecastaiMiddleware = BotkitMiddlewareRecastai({
     request_token: controller.config.recastaiApiToken,
     confidence: 0.4
   })

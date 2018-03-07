@@ -1,6 +1,6 @@
 import Botkit from 'botkit'
 import skills from './skills'
-import expressWebserver from './components/express_webserver'
+import expressWebserver from './components/expressWebserver'
 
 const botOptions = {
   recastaiApiToken: process.env.RECASTAI_API_TOKEN,
