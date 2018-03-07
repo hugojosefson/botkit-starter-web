@@ -1,21 +1,6 @@
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-           ______     ______     ______   __  __     __     ______
-          /\  == \   /\  __ \   /\__  _\ /\ \/ /    /\ \   /\__  _\
-          \ \  __<   \ \ \/\ \  \/_/\ \/ \ \  _"-.  \ \ \  \/_/\ \/
-           \ \_____\  \ \_____\    \ \_\  \ \_\ \_\  \ \_\    \ \_\
-            \/_____/   \/_____/     \/_/   \/_/\/_/   \/_/     \/_/
-
-# EXTEND THE BOT:
-
-  Botkit has many features for building cool and useful bots!
-
-  Read all about it here:
-
-    -> http://howdy.ai/botkit
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import Botkit from 'botkit'
 import skills from './skills'
+import expressWebserver from './components/express_webserver'
 
 const botOptions = {
   recastaiApiToken: process.env.RECASTAI_API_TOKEN,
@@ -26,7 +11,7 @@ const botOptions = {
 const controller = Botkit.socketbot(botOptions)
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
-const webserver = require('./components/express_webserver')(controller)
+const webserver = expressWebserver(controller)
 
 // Open the web socket server
 controller.openSocketServer(controller.httpserver)
