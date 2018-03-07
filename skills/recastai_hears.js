@@ -65,31 +65,50 @@ module.exports = controller => {
                     address: raw
                   })
                 )
-                .then(distributors =>
-                  distributors.forEach(distributor =>
-                    getMeals({
-                      dataprovider: skolmaten,
-                      distributor,
-                      startDate: today,
-                      endDate: today
-                    })
-                      .then(extractOnlyMeals)
-                      .then(meals => {
-                        meals
-                          .filter(meal => meal.courses && meal.courses.length)
-                          .forEach(meal =>
-                            bot.reply(
-                              message,
-                              `${meal.name} today in ${
-                                distributor.name
-                              } is ${meal.courses
-                                .map(({ name }) => name)
-                                .join('; ')}.`
-                            )
-                          )
+                .then(distributors => {
+                  if (distributors.length > 1) {
+                    bot.reply(
+                      message,
+                      `I found ${
+                        distributors.length
+                      } schools with matching names: ${distributors
+                        .map(
+                          ({ name, address }) =>
+                            `${name} in ${address.addressLocality}, ${
+                              address.addressRegion
+                            }`
+                        )
+                        .join('; ')}. Which one?`
+                    )
+                  } else {
+                    return distributors.forEach(distributor => {
+                      debug(
+                        `distributor: ${JSON.stringify(distributor, null, 2)}`
+                      )
+                      getMeals({
+                        dataprovider: skolmaten,
+                        distributor,
+                        startDate: today,
+                        endDate: today
                       })
-                  )
-                )
+                        .then(extractOnlyMeals)
+                        .then(meals => {
+                          meals
+                            .filter(meal => meal.courses && meal.courses.length)
+                            .forEach(meal =>
+                              bot.reply(
+                                message,
+                                `${meal.name} today in ${
+                                  distributor.name
+                                } is ${meal.courses
+                                  .map(({ name }) => name)
+                                  .join('; ')}.`
+                              )
+                            )
+                        })
+                    })
+                  }
+                })
             })
             .catch(e => {
               debug('There was an error: ' + JSON.stringify(e, null, 2))
