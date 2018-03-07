@@ -14,8 +14,8 @@
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-const Botkit = require('botkit')
-const debug = require('debug')('botkit:main')
+import Botkit from 'botkit'
+import skills from './skills'
 
 const botOptions = {
   recastaiApiToken: process.env.RECASTAI_API_TOKEN,
@@ -34,12 +34,8 @@ controller.openSocketServer(controller.httpserver)
 // Start the bot brain in motion!!
 controller.startTicking()
 
-const normalizedPath = require('path').join(__dirname, 'skills')
-require('fs')
-  .readdirSync(normalizedPath)
-  .forEach(function (file) {
-    require('./skills/' + file)(controller)
-  })
+// Register skills
+skills.forEach(skill => skill(controller))
 
 console.log(
   'I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 8080)

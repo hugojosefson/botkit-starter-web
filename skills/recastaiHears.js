@@ -9,7 +9,7 @@ import {
 
 const debug = require('debug')('botkit:recastai_hears')
 
-module.exports = controller => {
+export default controller => {
   debug('Register "hears get-contact-info"')
   controller.hears(['get-contact-info'], 'message_received', (bot, message) => {
     debug('Heard get-contact-info')

@@ -1,15 +1,15 @@
-module.exports = function (controller) {
-  controller.on('hello', function (bot, message) {
+export default controller => {
+  controller.on('hello', (bot, message) => {
     // a new session with an unknown user has begun
     bot.reply(message, 'Hi! You are new here.')
   })
 
-  controller.on('welcome_back', function (bot, message) {
+  controller.on('welcome_back', (bot, message) => {
     // a known user has started a new, fresh session. Or just reloaded their browser tab.
     bot.reply(message, 'Welcome back!')
   })
 
-  controller.on('reconnect', function (bot, message) {
+  controller.on('reconnect', (bot, message) => {
     // the connection between the client and server experienced a disconnect/reconnect
     bot.reply(
       message,
