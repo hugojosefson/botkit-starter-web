@@ -1,4 +1,5 @@
+import recastaiCapture from './recastai-capture'
 import connectionEvents from './connection-events'
 import recastaiHears from './recastai-hears'
 
-export default [connectionEvents, recastaiHears]
+export default [recastaiCapture, connectionEvents, recastaiHears]
