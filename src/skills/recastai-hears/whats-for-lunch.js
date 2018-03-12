@@ -70,7 +70,7 @@ export const doWhatWeCan = convo => {
                       .filter(meal => meal.courses && meal.courses.length)
                       .forEach(meal =>
                         convo.say(
-                          `${meal.name} today in ${
+                          `${meal.name} on ${datetime} in ${
                             distributor.name
                           } is ${meal.courses
                             .map(({ name }) => name)
